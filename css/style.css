@@ -2,9 +2,21 @@
   --cor-fundo: #fff;
   --cor-fundo-menu: #f1f2f6;
   --cor-principal: #58b9da;
-  --cor-secundario: #47cec0;
+  --cor-secundario: #6ad4dd;
   --cor-texto: #010101;
+  --cor-cartao: #41b06e;
+  --cor-trilha: #f57d1f;
   --fonte: "Poppins", sans-serif;
+}
+
+:root.contraste {
+  --cor-fundo: #121212;
+  --cor-fundo-menu: #333;
+  --cor-texto: #f1f2f6;
+  --cor-principal: #2c4e80;
+  --cor-secundario: #135d66;
+  --cor-cartao: #436850;
+  --cor-trilha: #ffec9e;
 }
 
 * {
@@ -75,12 +87,14 @@ input[type="search"]::-webkit-search-results-decoration {
   display: block;
   margin: 0 auto;
   padding: 4px 8px;
+  border-color: var(--cor-texto);
+  color: var(--cor-texto);
   background-color: var(--cor-fundo);
 }
 
 .pesquisa input[type="search"]::placeholder {
   text-align: center;
-  color: rgba(0, 0, 0, 0.75);
+  color: var(--cor-texto);
 }
 
 .pesquisa button {
@@ -169,6 +183,14 @@ input[type="search"]::-webkit-search-results-decoration {
   cursor: pointer;
 }
 
+.acessibilidade [data-acessibilidade="contraste"] svg {
+  transition: 0.35s;
+}
+
+.acessibilidade [data-acessibilidade="contraste"].ativo svg {
+  transform: rotate(180deg);
+}
+
 /* Conteudo */
 
 .conteudo-principal {
@@ -192,7 +214,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .conteudo-principal .hub a {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
 }
 
 .conteudo-principal .hub ul li {
@@ -214,27 +236,33 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .trilha span {
-  color: var(--cor-secundario);
+  color: var(--cor-trilha);
 }
 
 .cartoes-flex {
   padding: 45px;
   display: flex;
-  gap: 5px;
+  gap: 45px;
   flex-wrap: wrap;
 }
 
 .cartoes-flex .cartao {
   display: flex;
   padding: 4px 8px;
-  min-width: 100px;
-  min-height: 125px;
+  width: 280px;
+  min-height: 155px;
+  text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-family: var(--fonte);
-  background-color: #548568;
+  background-color: var(--cor-cartao);
   color: var(--cor-texto);
   border-radius: 8px;
   box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
+}
+
+.cartoes-flex .cartao:hover {
+  scale: 1.125;
 }
